@@ -333,6 +333,19 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      <a
+        href="https://wa.me/79224798608"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full p-4 shadow-lg transition-all hover:scale-110 flex items-center gap-2 group"
+        aria-label="Написать в WhatsApp"
+      >
+        <Icon name="MessageCircle" size={28} />
+        <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap font-semibold">
+          Написать в WhatsApp
+        </span>
+      </a>
     </div>
   );
 }
