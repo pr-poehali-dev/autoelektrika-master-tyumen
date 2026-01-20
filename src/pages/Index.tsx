@@ -272,7 +272,7 @@ export default function Index() {
                 <CardTitle>Адрес</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">г. Тюмень, ул. Транспортная, 45</p>
+                <p className="text-muted-foreground">г. Тюмень, ул. Чекистов, 38д</p>
                 <p className="text-sm text-muted-foreground mt-2">(с возможностью заезда крупногабаритной техники)</p>
               </CardContent>
             </Card>
@@ -282,8 +282,8 @@ export default function Index() {
                 <CardTitle>Телефон</CardTitle>
               </CardHeader>
               <CardContent>
-                <a href="tel:+73452000000" className="text-xl font-semibold hover:text-primary transition-colors">
-                  +7 (345) 200-00-00
+                <a href="tel:+79224798608" className="text-xl font-semibold hover:text-primary transition-colors">
+                  +7 (922) 479-86-08
                 </a>
                 <p className="text-sm text-muted-foreground mt-2">Ежедневно с 9:00 до 19:00</p>
               </CardContent>
