@@ -265,7 +265,7 @@ export default function Index() {
               Приезжайте на диагностику или позвоните нам
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
             <Card className="text-center">
               <CardHeader>
                 <Icon name="MapPin" size={48} className="text-primary mx-auto mb-4" />
@@ -297,6 +297,20 @@ export default function Index() {
                 <p className="text-muted-foreground">Пн-Пт: 9:00 - 19:00</p>
                 <p className="text-muted-foreground">Сб: 10:00 - 16:00</p>
                 <p className="text-sm text-muted-foreground mt-2">Вс: выходной</p>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="max-w-5xl mx-auto">
+            <Card className="overflow-hidden">
+              <CardContent className="p-0">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?um=constructor%3A7e8f9c8b8d8e8f8e8d8e8f8e8d8e8f8e&amp;source=constructor"
+                  width="100%"
+                  height="400"
+                  frameBorder="0"
+                  className="w-full"
+                  title="Карта с адресом сервиса"
+                ></iframe>
               </CardContent>
             </Card>
           </div>
