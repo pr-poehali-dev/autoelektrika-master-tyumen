@@ -48,26 +48,7 @@ export default function Index() {
     }
   ];
 
-  const reviews = [
-    {
-      name: 'Сергей К.',
-      company: 'ООО "ТрансЛогистик"',
-      text: 'Быстро нашли проблему с ЭБУ на Scania. Ремонт выполнили за день, машина в рейсе. Рекомендую!',
-      rating: 5
-    },
-    {
-      name: 'Михаил В.',
-      company: 'ИП Васильев',
-      text: 'Установили ГЛОНАСС и тахограф на MAN. Профессионально, все работает отлично. Спасибо!',
-      rating: 5
-    },
-    {
-      name: 'Андрей П.',
-      company: 'ООО "Сибирь-Авто"',
-      text: 'Отремонтировали генератор на Volvo. Работают быстро, цены честные, есть гарантия.',
-      rating: 5
-    }
-  ];
+
 
   const faqs = [
     {
@@ -247,35 +228,6 @@ export default function Index() {
                 </form>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Отзывы клиентов</h2>
-            <p className="text-xl text-muted-foreground">
-              Нам доверяют владельцы грузовиков и транспортные компании
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {reviews.map((review, idx) => (
-              <Card key={idx} className="animate-fade-in" style={{ animationDelay: `${idx * 0.1}s` }}>
-                <CardHeader>
-                  <div className="flex items-center gap-1 mb-2">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Icon key={i} name="Star" size={18} className="fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <CardTitle className="text-lg">{review.name}</CardTitle>
-                  <CardDescription>{review.company}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground italic">"{review.text}"</p>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
