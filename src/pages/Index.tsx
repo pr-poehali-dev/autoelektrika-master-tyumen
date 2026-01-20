@@ -90,9 +90,9 @@ export default function Index() {
               <p className="text-sm text-muted-foreground">Тюмень</p>
             </div>
           </div>
-          <a href="tel:+73452000000" className="flex items-center gap-2 text-lg font-semibold hover:text-primary transition-colors">
+          <a href="tel:+79224798608" className="flex items-center gap-2 text-lg font-semibold hover:text-primary transition-colors">
             <Icon name="Phone" size={20} />
-            +7 (345) 200-00-00
+            +7 (922) 479-86-08
           </a>
         </div>
       </header>
