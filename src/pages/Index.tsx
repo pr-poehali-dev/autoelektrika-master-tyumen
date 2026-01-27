@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -8,6 +8,15 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Icon from '@/components/ui/icon';
 
 export default function Index() {
+  useEffect(() => {
+    document.title = 'Автоэлектрика для грузовиков в Тюмени — ремонт и диагностика | Автоэлектрика Мастер';
+    
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Профессиональный ремонт автоэлектрики грузовых автомобилей в Тюмени. Диагностика, ремонт генераторов, стартеров, проводки. Выезд на место. Опыт 15+ лет. ☎️ +7 (922) 479-86-08');
+    }
+  }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -86,7 +95,7 @@ export default function Index() {
           <div className="flex items-center gap-3">
             <Icon name="Zap" size={32} className="text-primary" />
             <div>
-              <h1 className="text-xl font-bold">Автоэлектрика Мастер</h1>
+              <span className="text-xl font-bold">Автоэлектрика Мастер</span>
               <p className="text-sm text-muted-foreground">Тюмень</p>
             </div>
           </div>
@@ -101,9 +110,9 @@ export default function Index() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl animate-fade-in">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Профессиональная автоэлектрика для грузового транспорта
-            </h2>
+            </h1>
             <p className="text-xl text-muted-foreground mb-8">
               Диагностика, ремонт и обслуживание электросистем коммерческой и грузовой техники в Тюмени
             </p>
@@ -143,10 +152,13 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="services" className="py-20">
+      <section id="services" className="py-20" itemScope itemType="https://schema.org/LocalBusiness">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Наши услуги</h2>
+            <meta itemProp="name" content="Автоэлектрика Мастер" />
+            <meta itemProp="telephone" content="+7-922-479-86-08" />
+            <meta itemProp="address" content="Тюмень" />
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Полный спектр работ по электрооборудованию грузовой и коммерческой техники
             </p>
