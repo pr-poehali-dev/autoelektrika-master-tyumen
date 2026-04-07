@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
@@ -18,11 +17,9 @@ export default function Index() {
   }, []);
 
   const [formData, setFormData] = useState({
-    name: '',
     phone: '',
-    brand: '',
-    problem: ''
   });
+  const [submitted, setSubmitted] = useState(false);
 
   const services = [
     {
@@ -84,8 +81,7 @@ export default function Index() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+    setSubmitted(true);
   };
 
   return (
@@ -183,61 +179,39 @@ export default function Index() {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Запись на диагностику</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Мы вам перезвоним</h2>
               <p className="text-xl text-muted-foreground">
-                Оставьте заявку, и мы свяжемся с вами для уточнения деталей
+                Оставьте номер телефона — перезвоним в течение 15 минут
               </p>
             </div>
             <Card className="shadow-lg">
               <CardContent className="pt-6">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Ваше имя *</Label>
-                    <Input
-                      id="name"
-                      required
-                      placeholder="Иван Иванов"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    />
+                {submitted ? (
+                  <div className="text-center py-8 space-y-4">
+                    <Icon name="CheckCircle" size={56} className="mx-auto text-green-500" />
+                    <p className="text-2xl font-bold">Спасибо!</p>
+                    <p className="text-muted-foreground text-lg">Мы перезвоним вам в ближайшее время</p>
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Телефон *</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      required
-                      placeholder="+7 (___) ___-__-__"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="brand">Марка и модель автомобиля *</Label>
-                    <Input
-                      id="brand"
-                      required
-                      placeholder="Например: Scania R440, Volvo FH12"
-                      value={formData.brand}
-                      onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="problem">Описание проблемы *</Label>
-                    <Textarea
-                      id="problem"
-                      required
-                      placeholder="Опишите неисправность: что не работает, когда началось, были ли предупреждающие сигналы..."
-                      rows={5}
-                      value={formData.problem}
-                      onChange={(e) => setFormData({ ...formData, problem: e.target.value })}
-                    />
-                  </div>
-                  <Button type="submit" size="lg" className="w-full text-lg">
-                    <Icon name="Send" className="mr-2" size={20} />
-                    Отправить заявку
-                  </Button>
-                </form>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Ваш номер телефона *</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        required
+                        placeholder="+7 (___) ___-__-__"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="text-lg h-12"
+                      />
+                    </div>
+                    <Button type="submit" size="lg" className="w-full text-lg">
+                      <Icon name="Phone" className="mr-2" size={20} />
+                      Перезвоните мне
+                    </Button>
+                  </form>
+                )}
               </CardContent>
             </Card>
           </div>
