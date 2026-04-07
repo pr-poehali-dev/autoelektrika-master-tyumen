@@ -79,8 +79,13 @@ export default function Index() {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    await fetch('https://functions.poehali.dev/408f9092-baa9-4400-aadb-86bb5851e87a', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone: formData.phone }),
+    });
     setSubmitted(true);
   };
 
